@@ -1,0 +1,224 @@
+:root {
+  --shadow: 0 2px 2px rgb(0 0 0/0.5);
+  --warna: brown;
+}
+body {
+  font-size: 1rem;
+  font-family: "Work Sans", sans-serif;
+}
+.panel-top {
+  background-color: var(--warna);
+}
+.panel-top span {
+  font-size: 0.8rem;
+}
+.panel-top a {
+  text-decoration: none;
+  color: white;
+  margin-right: 5px;
+}
+.navbar {
+  border-bottom: 1px solid var(--warna);
+}
+.navbar .registrasi {
+  background-color: blueviolet;
+  color: white;
+  margin-left: 10px;
+  box-shadow: var(--shadow);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.navbar .registrasi:hover {
+  background-color: white;
+  color: blueviolet;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(img/bg_kaputama.jpg);
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(26, 128, 127, 0.7);
+  z-index: -1;
+}
+.hero {
+  position: relative;
+}
+.hero .container-fluid {
+  height: 100vh;
+}
+.hero h1 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+}
+.hero span {
+  display: block;
+}
+.hero h1,
+.hero span,
+.hero p {
+  text-shadow: var(--shadow);
+}
+
+.prodi .card {
+  border-radius: 0px;
+  border: 1px solid lightgray;
+  height: 230px;
+}
+.prodi .card-title {
+  color: var(--warna) !important;
+  font-weight: bold;
+}
+.prodi .card-text,
+.prodi .card-subtitle {
+  font-size: 0.9rem;
+}
+.prodi .card p {
+  text-align: justify;
+  font-size: 0.8rem;
+}
+.hero a,
+.prodi .card a,
+.penelitian a,
+.pengabdian a,
+.layanan-digital a {
+  background-color: var(--warna);
+  text-decoration: none;
+  padding: 8px;
+  font-size: 0.7rem;
+  color: white;
+  text-transform: uppercase;
+  border: 1px solid var(--warna);
+}
+.pmb p {
+  font-size: 0.8rem;
+  margin-top: 25px;
+}
+.pmb a {
+  background-color: white;
+  text-decoration: none;
+  padding: 8px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: var(--warna);
+  text-transform: uppercase;
+  border: 1px solid var(--warna);
+}
+.pmb a:hover {
+  background-color: var(--warna);
+  color: white;
+  border: 1px solid white;
+}
+.hero a:hover,
+.prodi .card a:hover,
+.penelitian a:hover,
+.pengabdian a:hover,
+.layanan-digital a:hover {
+  background-color: white;
+  color: var(--warna);
+  border: 1px solid var(--warna);
+}
+.penelitian {
+  background-color: beige;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.pages {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.penelitian img,
+.pengabdian img {
+  box-shadow: var(--shadow);
+}
+.penelitian h1,
+.pengabdian h1,
+.pmb h1,
+.pages h1 {
+  font-size: 1.5rem;
+}
+.penelitian p,
+.pengabdian p,
+.pages p {
+  text-align: justify;
+}
+.pengabdian {
+  background-color: burlywood;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.city img {
+  width: 50%;
+}
+.footer {
+  background-color: var(--warna);
+  color: white;
+}
+.footer img {
+  width: 130px;
+}
+.footer h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.footer p {
+  margin-bottom: 1px;
+  font-size: 0.9rem;
+}
+.footer .copyright {
+  font-size: 0.8rem;
+}
+.bgicon {
+  display: block;
+  position: absolute;
+  bottom: -20px;
+  left: 10px;
+  font-size: 100px;
+  color: rgba(0, 0, 0, 0.1);
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .prodi .card {
+    height: 270px;
+  }
+  .navbar .registrasi {
+    margin-left: 0px;
+    text-align: center;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .navbar .registrasi {
+    margin-left: 0px;
+    text-align: center;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

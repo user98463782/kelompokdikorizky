@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    .jumbotron {
+      background-color: #194268;
+      color: white;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    #formOrtu {
+      display: none;
+    }
+
+    #formWali {
+      display: none;
+    }
+  </style>
+
+  <head>
+    <!-- css untuk select2 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/assets/logo/logo-edp.svg" />
+    <title>PMB STMIK Kaputama</title>
+    <link rel="stylesheet" href="" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+    body {
+      font-family: "Montserrat";
+    }
+
+    .btn-maroon {
+      background-color: #88140a !important;
+      color: #fff !important;
+    }
+
+    .btn-maroon:hover {
+      background-color: #6a0f08 !important;
+    }
+  </style>
+
+  <body>
+    <div class="jumbotron pb-5">
+      <div class="container">
+        <a
+          href="/"
+          class="btn btn-warning mt-4"
+          id="btn-back"
+          style="font-size: 20px; color: white"
+          ><
+        </a>
+        <h1 class="mt-3">Formulir Pendaftaran<br /></h1>
+        <small class="badge bg-info">Gelombang 2</small>
+        <br />
+        <p>
+          Pastikan kembali data yang anda isi sudah benar semua & lengkap
+          sebelum melanjutkan.
+        </p>
+        <div class="alert alert-info" role="alert">
+          <b>Perhatian!</b> field yang bertanda bintang * berarti wajib diisi.
+        </div>
+      </div>
+    </div>
+
+    <form action="/daftar" method="post">
+      <input
+        type="hidden"
+        name="_token"
+        value="pWzmEes9AN9zt3p5zoDC1v8PMfbtwACHDsMVxV7i"
+        autocomplete="off"
+      />
+      <div class="container py-5">
+        <div class="row">
+          <h1 class="alert alert-info mb-4" style="font-weight: bold">
+            Data Diri
+          </h1>
+
+          <div class="col-12 col-md-6 mt-4">
+            <div class="form-group">
+              <label for="nik">NIK : *</label>
+              <input
+                type="number"
+                name="nik"
+                required
+                class="form-control"
+                id="nik"
+                pattern="/^-?\d+\.?\d*$/"
+                onKeyPress="if(this.value.length==16) return false;"
+              />
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 mt-4">
+            <div class="form-group">
+              <label for="nama-lengkap">Nama Lengkap : *</label>
+              <input
+                type="text"
+                required
+                style="text-transform: capitalize"
+                name="nama_lengkap"
+                class="form-control"
+                id="nama-lengkap"
+              />
+            </div>
+          </div>
+
+          <div class="col-12 mt-4">
+            <div class="form-group">
+              <label>Tempat / Tanggal Lahir : *</label>
+              <div class="row">
+                <div class="col-4">
+                  <input
+                    type="text"
+                    name="tempat_lahir"
+                    required
+                    placeholder="Tempat Lahir"
+                    class="form-control"
+                  />
+                </div>
+                <div class="col-8">
+                  <input
+                    type="date"
+                    name="tgl_lahir"
+                    required
+                    class="form-control"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 mt-4">
+            <div class="form-group">
+              <label>Jenis Kelamin : *<br /></label>
+              <div class="row">
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="jk"
+                      value="Laki-laki"
+                      class="form-check-input"
+                      id="laki"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="laki"
+                      style="font-weight: normal !important"
+                      >Laki-laki</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="jk"
+                      value="Perempuan"
+                      class="form-check-input"
+                      id="perempuan"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="perempuan"
+                      style="font-weight: normal !important"
+                      >Perempuan</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 mt-4">
+            <div class="form-group">
+              <label for="nama-lengkap">Status : *<br /></label>
+              <div class="row">
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="status_menikah"
+                      value="Menikah"
+                      class="form-check-input"
+                      id="menikah"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="menikah"
+                      style="font-weight: normal !important"
+                      >Menikah</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="status_menikah"
+                      value="Belum Menikah"
+                      class="form-check-input"
+                      id="belum-menikah"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="belum-menikah"
+                      style="font-weight: normal !important"
+                      >Belum Menikah</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 mt-4">
+            <div class="form-group">
+              <label for="nama-lengkap">Agama : *<br /></label>
+              <div class="row">
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="agama"
+                      value="islam"
+                      class="form-check-input"
+                      id="islam"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="islam"
+                      style="font-weight: normal !important"
+                      >Islam</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="agama"
+                      value="protestan"
+                      class="form-check-input"
+                      id="protestan"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="protestan"
+                      style="font-weight: normal !important"
+                      >Protestan</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="agama"
+                      value="katolik"
+                      class="form-check-input"
+                      id="katolik"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="katolik"
+                      style="font-weight: normal !important"
+                      >Katolik</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="agama"
+                      value="hindu"
+                      class="form-check-input"
+                      id="hindu"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="hindu"
+                      style="font-weight: normal !important"
+                      >Hindu</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="agama"
+                      value="budha"
+                      class="form-check-input"
+                      id="budha"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="budha"
+                      style="font-weight: normal !important"
+                      >Budha</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 mt-4">
+            <div class="form-group">
+              <label for="alat_transportasi"
+                >Alat Transportasi :<br /><small
+                  style="font-size: 12px !important"
+                  ><i></i></small
+              ></label>
+              <select
+                name="alat_transportasi"
+                id="alat_transportasi"
+                class="form-select"
+              >
+                <option value="1">Jalan kaki</option>
+                <option value="3">Angkutan umum/bus/pete-pete</option>
+                <option value="4">Mobil/bus antar jemput</option>
+                <option value="5">Kereta api</option>
+                <option value="6">Ojek</option>
+                <option value="7">Andong/bendi/sado/dokar/delman/becak</option>
+                <option value="8">Perahu penyeberangan/rakit/getek</option>
+                <option value="11">Kuda</option>
+                <option value="12">Sepeda</option>
+                <option value="13">Sepeda motor</option>
+                <option value="14">Mobil pribadi</option>
+                <option value="99">Lainnya</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 mt-4">
+            <div class="form-group">
+              <label for="jenis_tinggal">Jenis Tinggal :</label>
+              <select
+                name="jenis_tinggal"
+                id="jenis_tinggal"
+                class="form-select"
+              >
+                <option value="1">Bersama orang tua</option>
+                <option value="2">Wali</option>
+                <option value="3">Kost</option>
+                <option value="4">Asrama</option>
+                <option value="5">Panti asuhan</option>
+                <option value="99">Lainnya</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 mt-4">
+            <div class="form-group">
+              <label for="penerima_kps">Penerima KPS : *</label>
+              <select
+                name="penerima_kps"
+                required
+                id="penerima_kps"
+                class="form-select"
+              >
+                <option value="Tidak">Tidak</option>
+                <option value="Ya">Ya</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 mt-4">
+            <div class="form-group">
+              <label for="kewarganegaraan">Kewarganegaraan : *</label>
+              <select
+                name="kewarganegaraan"
+                required
+                id="kewarganegaraan"
+                class="form-select"
+              >
+                <option value="WNI">WNI</option>
+                <option value="WNA">WNA</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-12 mt-4">
+            <div class="form-group">
+              <label for="alamat-lengkap"
+                >Alamat Lengkap<small>(Sesuai KTP)</small> : *</label
+              >
+              <textarea
+                type="text"
+                name="alamat_lengkap"
+                required
+                class="form-control"
+                id="nama-lengkap"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for=""
+                  >RT/RW :<br /><small style="font-size: 12px !important"
+                    ><i></i></small
+                ></label>
+                <div class="row">
+                  <div class="col-6">
+                    <input
+                      type="text"
+                      name="rt"
+                      placeholder="RT"
+                      class="form-control"
+                      id=""
+                    />
+                  </div>
+                  <div class="col-6">
+                    <input
+                      type="text"
+                      name="rw"
+                      placeholder="RW"
+                      class="form-control"
+                      id=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for="kode-pos"
+                  >Kode Pos :<br /><small style="font-size: 12px !important"
+                    ><i></i></small
+                ></label>
+                <input
+                  type="number"
+                  name="kode_pos"
+                  class="form-control"
+                  id="kode-pos"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for="dusun"
+                  >Dusun :<br /><small style="font-size: 12px !important"
+                    ><i></i></small
+                ></label>
+                <input
+                  type="text"
+                  name="dusun"
+                  class="form-control"
+                  id="dusun"
+                />
+              </div>
+            </div>
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for="npwp">NPWP :</label>
+                <input type="text" name="npwp" class="form-control" id="npwp" />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for="jalan">Jalan :</label>
+                <input
+                  type="text"
+                  name="jalan"
+                  class="form-control"
+                  id="jalan"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for="keldes">Kel/Desa : *</label>
+                <input
+                  type="text"
+                  name="keldes"
+                  required
+                  class="form-control"
+                  id="keldes"
+                />
+              </div>
+            </div>
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for="kecamatan">Kecamatan : *</label>
+                <input
+                  type="text"
+                  name="kecamatan"
+                  required
+                  class="form-control"
+                  id="kecamatan"
+                />
+              </div>
+            </div>
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for="tlp">Telp/Hp : *</label>
+                <input
+                  type="number"
+                  name="tlp"
+                  required
+                  class="form-control"
+                  id="tlp"
+                />
+              </div>
+            </div>
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for="email">Email :</label>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  id="email"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 mt-4">
+            <div class="form-group">
+              <label for="asal-sekolah"
+                >Asal Sekolah : *<br /><small style="font-size: 12px !important"
+                  ><i></i></small
+              ></label>
+              <input
+                type="text"
+                name="asal_sekolah"
+                required
+                class="form-control"
+                id="asal-sekolah"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-6 mt-4">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="nisn">NISN : *</label>
+                <input
+                  required
+                  type="number"
+                  name="nisn"
+                  class="form-control"
+                  id="nisn"
+                />
+              </div>
+            </div>
+            <div class="col-12 mb-3 mt-4">
+              <label for="">Jurusan : *</label>
+              <input
+                type="text"
+                name="jurusan_asal_sekolah"
+                required
+                class="form-control"
+              />
+            </div>
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for="alamat-asal-sekolah">Alamat : *</label>
+                <textarea
+                  type="text"
+                  name="alamat_asal_sekolah"
+                  required
+                  class="form-control"
+                  id="alamat-asal-sekolah"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 mt-4">
+            <div class="form-group">
+              <label>Program Studi : *</label>
+              <div class="row">
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="jenjang_pendidikan"
+                      value="Teknik Informatika (S1)"
+                      class="form-check-input"
+                      id="ti"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="ti"
+                      style="font-weight: normal !important"
+                      >Teknik Informatika (S1)</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="jenjang_pendidikan"
+                      value="Sistem Informasi (S1)"
+                      class="form-check-input"
+                      id="si"
+                    />
+                    <label
+                      class="form-check-label"
+                      name="si"
+                      for="si"
+                      style="font-weight: normal !important"
+                      >Sistem Informasi (S1)</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="jenjang_pendidikan"
+                      value="Manajemen Informatika (D3)"
+                      class="form-check-input"
+                      id="mi"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="mi"
+                      style="font-weight: normal !important"
+                      >Manajemen Informatika (D3)</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="jenjang_pendidikan"
+                      value="Komputerisasi Akuntansi (D3)"
+                      class="form-check-input"
+                      id="ka"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="ka"
+                      style="font-weight: normal !important"
+                      >Komputerisasi Akuntansi (D3)</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 mt-4">
+            <div class="form-group">
+              <label>Waktu Belajar : *</label>
+              <div class="row">
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="waktu_belajar"
+                      value="Pagi"
+                      class="form-check-input"
+                      id="pagi"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="pagi"
+                      style="font-weight: normal !important"
+                      >Pagi</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="waktu_belajar"
+                      value="Sore"
+                      class="form-check-input"
+                      id="sore"
+                    />
+                    <label
+                      class="form-check-label"
+                      name="sore"
+                      for="sore"
+                      style="font-weight: normal !important"
+                      >Sore</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 mt-4">
+            <div class="form-group">
+              <label>Pilihan Kelas : *</label>
+              <div class="row">
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="kelas"
+                      value="Reguler"
+                      class="form-check-input"
+                      id="reguler"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="reguler"
+                      style="font-weight: normal !important"
+                      >Reguler</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="kelas"
+                      value="Karyawan"
+                      class="form-check-input"
+                      id="karyawan"
+                    />
+                    <label
+                      class="form-check-label"
+                      name="karyawan"
+                      for="karyawan"
+                      style="font-weight: normal !important"
+                      >Karyawan</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="kelas"
+                      value="Kip Kuliah"
+                      class="form-check-input"
+                      id="kip_kuliah"
+                    />
+                    <label
+                      class="form-check-label"
+                      name="kip_kuliah"
+                      for="kip_kuliah"
+                      style="font-weight: normal !important"
+                      >KIP Kuliah</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="alert alert-info mt-5 mb-3 d-flex justify-content-between align-items-center"
+            role="alert"
+          >
+            <b>Data Orang Tua</b>
+            <button
+              type="button"
+              class="btn btn-sm btn-primary rounded-pill"
+              onclick="toggleFormOrtu()"
+              id="btn_data_ortu"
+            >
+              Isi Data
+            </button>
+          </div>
+
+          <div id="formOrtu">
+            <div class="col-12 col-md-6 mt-4">
+              <div class="form-group">
+                <label for="nama-ayah">Nama Ayah :*</label>
+                <input
+                  style="text-transform: capitalize"
+                  type="text"
+                  name="nama_ayah"
+                  class="form-control"
+                  id="nama-ayah"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 mt-4">
+              <div class="form-group">
+                <label for="nik-ayah">NIK :</label>
+                <input
+                  type="number"
+                  name="nik_ayah"
+                  class="form-control"
+                  id="nik-ayah"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 mt-3 mt-4">
+              <div class="form-group">
+                <label for="nama-lengkap">Tempat / Tanggal Lahir :</label>
+                <div class="row">
+                  <div class="col-4">
+                    <input
+                      type="text"
+                      name="tempat_lahir_ayah"
+                      placeholder="Tempat Lahir"
+                      class="form-control"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <input
+                      type="date"
+                      name="tgl_lahir_ayah"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 mt-3 mt-4">
+              <div class="form-group">
+                <label for="pendidikan-terakhir-ayah"
+                  >Pendidikan Terakhir :</label
+                >
+                <input
+                  type="text"
+                  name="pendidikan_terakhir_ayah"
+                  class="form-control"
+                  id="pendidikan-terakhir-ayah"
+                />
+              </div>
+            </div>
+
+            <div class="col-6 mt-3 mt-4">
+              <div class="form-group">
+                <label for="pekerjaan-ayah">Pekerjaan :</label>
+                <input
+                  type="text"
+                  name="pekerjaan_ayah"
+                  class="form-control"
+                  id="pekerjaan-ayah"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 mt-3 mt-4">
+              <div class="form-group">
+                <label for="penghasilan-ayah">Penghasilan :</label>
+                <select
+                  name="penghasilan_ayah"
+                  id="penghasilan-ayah"
+                  class="form-select"
+                >
+                  <option value="Kurang dari Rp. 500.000">
+                    Kurang dari Rp. 500.000
+                  </option>
+                  <option value="Rp. 500.000 - Rp. 999.999">
+                    Rp. 500.000 - Rp. 999.999
+                  </option>
+                  <option value="Rp. 1.000.000 - Rp. 1.999.999">
+                    Rp. 1.000.000 - Rp. 1.999.999
+                  </option>
+                  <option value="Rp. 2.000.000 - Rp. 4.999.999">
+                    Rp. 2.000.000 - Rp. 4.999.999
+                  </option>
+                  <option value="Rp. 5.000.000 - Rp. 20.000.000">
+                    Rp. 5.000.000 - Rp. 20.000.000
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3 mt-4">
+              <div class="form-group">
+                <label for="alamat-lengkap-ayah"
+                  >Alamat Lengkap Ayah<small>(Sesuai KTP)</small> :</label
+                >
+                <textarea
+                  type="text"
+                  name="alamat_lengkap_ayah"
+                  class="form-control"
+                  id="nama-lengkap-ayah"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="">RT/RW :</label>
+                  <div class="row">
+                    <div class="col-6">
+                      <input
+                        type="text"
+                        name="rt_ayah"
+                        placeholder="RT"
+                        class="form-control"
+                        id=""
+                      />
+                    </div>
+                    <div class="col-6">
+                      <input
+                        type="text"
+                        name="rw_ayah"
+                        placeholder="RW"
+                        class="form-control"
+                        id=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="kode-pos-ayah">Kode Pos :</label>
+                  <input
+                    type="number"
+                    name="kode_pos_ayah"
+                    class="form-control"
+                    id="kode-pos-ayah"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="keldes-ayah">Kel/Desa :</label>
+                  <input
+                    type="text"
+                    name="keldes_ayah"
+                    class="form-control"
+                    id="keldes-ayah"
+                  />
+                </div>
+              </div>
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="kecamatan-ayah">Kecamatan :</label>
+                  <input
+                    type="text"
+                    name="kecamatan_ayah"
+                    class="form-control"
+                    id="kecamatan-ayah"
+                  />
+                </div>
+              </div>
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="tlp-ayah">Telp/Hp :</label>
+                  <input
+                    type="number"
+                    name="tlp_ayah"
+                    class="form-control"
+                    id="tlp-ayah"
+                  />
+                </div>
+              </div>
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="npwp-ayah">NPWP :</label>
+                  <input
+                    type="text"
+                    name="npwp_ayah"
+                    class="form-control"
+                    id="npwp-ayah"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 my-5">
+              <hr />
+            </div>
+
+            <div class="col-12 col-md-6 mt-4">
+              <div class="form-group">
+                <label for="nama-ibu">Nama Ibu :*</label>
+                <input
+                  style="text-transform: capitalize"
+                  type="text"
+                  name="nama_ibu"
+                  class="form-control"
+                  id="nama-ibu"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 mt-4">
+              <div class="form-group">
+                <label for="nik-ibu">NIK :</label>
+                <input
+                  type="number"
+                  name="nik_ibu"
+                  class="form-control"
+                  id="nik-ibu"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for="nama-lengkap">Tempat / Tanggal Lahir :</label>
+                <div class="row">
+                  <div class="col-4">
+                    <input
+                      type="text"
+                      name="tempat_lahir_ibu"
+                      placeholder="Tempat Lahir"
+                      class="form-control"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <input
+                      type="date"
+                      name="tgl_lahir_ibu"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 mt-4">
+              <div class="form-group">
+                <label for="pendidikan-terakhir-ibu"
+                  >Pendidikan Terakhir :</label
+                >
+                <input
+                  type="text"
+                  name="pendidikan_terakhir_ibu"
+                  class="form-control"
+                  id="pendidikan-terakhir-ibu"
+                />
+              </div>
+            </div>
+
+            <div class="col-6 mt-4">
+              <div class="form-group">
+                <label for="pekerjaan-ibu">Pekerjaan :</label>
+                <input
+                  type="text"
+                  name="pekerjaan_ibu"
+                  class="form-control"
+                  id="pekerjaan-ibu"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for="penghasilan-ibu">Penghasilan :</label>
+                <select
+                  name="penghasilan_ibu"
+                  id="penghasilan-ibu"
+                  class="form-select"
+                >
+                  <option value="Kurang dari Rp. 500.000">
+                    Kurang dari Rp. 500.000
+                  </option>
+                  <option value="Rp. 500.000 - Rp. 999.999">
+                    Rp. 500.000 - Rp. 999.999
+                  </option>
+                  <option value="Rp. 1.000.000 - Rp. 1.999.999">
+                    Rp. 1.000.000 - Rp. 1.999.999
+                  </option>
+                  <option value="Rp. 2.000.000 - Rp. 4.999.999">
+                    Rp. 2.000.000 - Rp. 4.999.999
+                  </option>
+                  <option value="Rp. 5.000.000 - Rp. 20.000.000">
+                    Rp. 5.000.000 - Rp. 20.000.000
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for="alamat-lengkap-ibu"
+                  >Alamat Lengkap Ibu<small>(Sesuai KTP)</small> :</label
+                >
+                <textarea
+                  type="text"
+                  name="alamat_lengkap_ibu"
+                  class="form-control"
+                  id="alamat-lengkap-ibu"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="">RT/RW :</label>
+                  <div class="row">
+                    <div class="col-6">
+                      <input
+                        type="text"
+                        name="rt_ibu"
+                        placeholder="RT"
+                        class="form-control"
+                        id=""
+                      />
+                    </div>
+                    <div class="col-6">
+                      <input
+                        type="text"
+                        name="rw_ibu"
+                        placeholder="RW"
+                        class="form-control"
+                        id=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="kode-pos-ibu">Kode Pos :</label>
+                  <input
+                    type="number"
+                    name="kode_pos_ibu"
+                    class="form-control"
+                    id="kode-pos-ibu"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="keldes-ibu">Kel/Desa :</label>
+                  <input
+                    type="text"
+                    name="keldes_ibu"
+                    class="form-control"
+                    id="keldes-ibu"
+                  />
+                </div>
+              </div>
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="kecamatan-ibu">Kecamatan :</label>
+                  <input
+                    type="text"
+                    name="kecamatan_ibu"
+                    class="form-control"
+                    id="kecamatan-ibu"
+                  />
+                </div>
+              </div>
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="tlp-ibu">Telp/Hp :</label>
+                  <input
+                    type="number"
+                    name="tlp_ibu"
+                    class="form-control"
+                    id="tlp-ibu"
+                  />
+                </div>
+              </div>
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="npwp-ibu">NPWP :</label>
+                  <input
+                    type="text"
+                    name="npwp_ibu"
+                    class="form-control"
+                    id="npwp-ibu"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="alert alert-info mt-5 mb-3 d-flex justify-content-between align-items-center"
+            role="alert"
+          >
+            <b>Data Wali</b>
+            <button
+              type="button"
+              class="btn btn-sm btn-primary rounded-pill"
+              onclick="toggleFormWali()"
+              id="btn_data_wali"
+            >
+              Isi Data
+            </button>
+          </div>
+
+          <div id="formWali">
+            <div class="col-12 col-md-6 mt-4">
+              <div class="form-group">
+                <label for="nama-wali">Nama wali :</label>
+                <input
+                  style="text-transform: capitalize"
+                  type="text"
+                  name="nama_wali"
+                  class="form-control"
+                  id="nama-wali"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 mt-4">
+              <div class="form-group">
+                <label for="nik-wali">NIK :</label>
+                <input
+                  type="number"
+                  name="nik_wali"
+                  class="form-control"
+                  id="nik-wali"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for="nama-lengkap">Tempat / Tanggal Lahir :</label>
+                <div class="row">
+                  <div class="col-4">
+                    <input
+                      type="text"
+                      name="tempat_lahir_wali"
+                      placeholder="Tempat Lahir"
+                      class="form-control"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <input
+                      type="date"
+                      name="tgl_lahir_wali"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 mt-4">
+              <div class="form-group">
+                <label for="pendidikan-terakhir-wali"
+                  >Pendidikan Terakhir :</label
+                >
+                <input
+                  type="text"
+                  name="pendidikan_terakhir_wali"
+                  class="form-control"
+                  id="pendidikan-terakhir-wali"
+                />
+              </div>
+            </div>
+
+            <div class="col-6 mt-4">
+              <div class="form-group">
+                <label for="pekerjaan-wali">Pekerjaan :</label>
+                <input
+                  type="text"
+                  name="pekerjaan_wali"
+                  class="form-control"
+                  id="pekerjaan-wali"
+                />
+              </div>
+            </div>
+
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for="penghasilan-wali">Penghasilan :</label>
+                <select
+                  name="penghasilan_wali"
+                  id="penghasilan-wali"
+                  class="form-select"
+                >
+                  <option value="Kurang dari Rp. 500.000">
+                    Kurang dari Rp. 500.000
+                  </option>
+                  <option value="Rp. 500.000 - Rp. 999.999">
+                    Rp. 500.000 - Rp. 999.999
+                  </option>
+                  <option value="Rp. 1.000.000 - Rp. 1.999.999">
+                    Rp. 1.000.000 - Rp. 1.999.999
+                  </option>
+                  <option value="Rp. 2.000.000 - Rp. 4.999.999">
+                    Rp. 2.000.000 - Rp. 4.999.999
+                  </option>
+                  <option value="Rp. 5.000.000 - Rp. 20.000.000">
+                    Rp. 5.000.000 - Rp. 20.000.000
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <label for="alamat-lengkap-wali"
+                  >Alamat Lengkap wali<small>(Sesuai KTP)</small> :</label
+                >
+                <textarea
+                  type="text"
+                  name="alamat_lengkap_wali"
+                  class="form-control"
+                  id="alamat-lengkap-wali"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="">RT/RW :</label>
+                  <div class="row">
+                    <div class="col-6">
+                      <input
+                        type="text"
+                        name="rt_wali"
+                        placeholder="RT"
+                        class="form-control"
+                        id=""
+                      />
+                    </div>
+                    <div class="col-6">
+                      <input
+                        type="text"
+                        name="rw_wali"
+                        placeholder="RW"
+                        class="form-control"
+                        id=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="kode-pos-wali">Kode Pos :</label>
+                  <input
+                    type="number"
+                    name="kode_pos_wali"
+                    class="form-control"
+                    id="kode-pos-wali"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="keldes-wali">Kel/Desa :</label>
+                  <input
+                    type="text"
+                    name="keldes_wali"
+                    class="form-control"
+                    id="keldes-wali"
+                  />
+                </div>
+              </div>
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="kecamatan-wali">Kecamatan :</label>
+                  <input
+                    type="text"
+                    name="kecamatan_wali"
+                    class="form-control"
+                    id="kecamatan-wali"
+                  />
+                </div>
+              </div>
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="tlp-wali">Telp/Hp :</label>
+                  <input
+                    type="number"
+                    name="tlp_wali"
+                    class="form-control"
+                    id="tlp-wali"
+                  />
+                </div>
+              </div>
+              <div class="col-12 mt-4">
+                <div class="form-group">
+                  <label for="npwp-wali">NPWP :</label>
+                  <input
+                    type="text"
+                    name="npwp_wali"
+                    class="form-control"
+                    id="npwp-wali"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 mt-5">
+            <div class="form-group">
+              <label>Sumber Informasi Mengenai STMIK Kaputama</label>
+              <div class="row">
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="info_kampus"
+                      value="Brosur/Spanduk/Poster"
+                      class="form-check-input"
+                      id="spanduk"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="spanduk"
+                      style="font-weight: normal !important"
+                      >Brosur/Spanduk/Poster</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="info_kampus"
+                      value="Media Massa"
+                      class="form-check-input"
+                      id="media_masa"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="media_masa"
+                      for="Media Massa"
+                      style="font-weight: normal !important"
+                      >Media Massa</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="info_kampus"
+                      value="Teman/Saudara"
+                      class="form-check-input"
+                      id="teman"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="teman"
+                      style="font-weight: normal !important"
+                      >Teman/Saudara</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="info_kampus"
+                      value="Sosmed"
+                      class="form-check-input"
+                      id="sosmed"
+                    />
+                    <label
+                      class="form-check-label"
+                      for="sosmed"
+                      style="font-weight: normal !important"
+                      >Sosmed</label
+                    >
+                  </div>
+                </div>
+                <div class="col-6 col-md-12">
+                  <div class="form-group form-check">
+                    <input
+                      type="radio"
+                      name="info_kampus"
+                      value="Lain-lain"
+                      class="form-check-input"
+                      id=""
+                    />
+                    <input
+                      type="text"
+                      name="lainnya"
+                      class="form-control"
+                      placeholder="Lain-lain"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 mt-5 mb-3">
+            <input
+              type="checkbox"
+              id="check_benar"
+              name="check_benar"
+              value="data benar"
+              class="form-check-input"
+            />
+            <label
+              class="form-check-label"
+              style="font-weight: normal !important"
+              for="check_benar"
+              >Saya telah memastikan data yang saya isi sudah benar.</label
+            >
+          </div>
+
+          <div class="col-12">
+            <button
+              type="submit"
+              disabled
+              id="btn_submit"
+              class="btn btn-primary"
+            >
+              Simpan
+            </button>
+          </div>
+
+          <div class="copyright">
+            <center style="color: black; margin-top: 140px">
+              Copyright &copy; 2024 STMIK Kaputama
+            </center>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <script>
+      const check_benar = document.getElementById("check_benar");
+      const btn_submit = document.getElementById("btn_submit");
+      btn_submit.disabled = true;
+      check_benar.onclick = function () {
+        if (check_benar.checked) {
+          btn_submit.disabled = false;
+        } else {
+          btn_submit.disabled = true;
+        }
+      };
+
+      function toggleFormOrtu() {
+        var formOrtu = document.getElementById("formOrtu");
+        var btn_data_ortu = document.getElementById("btn_data_ortu");
+        if (formOrtu.style.display === "block") {
+          formOrtu.style.display = "none";
+          btn_data_ortu.innerText = "Isi Data";
+        } else {
+          formOrtu.style.display = "block";
+          btn_data_ortu.innerText = "Tutup";
+        }
+      }
+
+      function toggleFormWali() {
+        var formWali = document.getElementById("formWali");
+        var btn_data_wali = document.getElementById("btn_data_wali");
+        if (formWali.style.display === "block") {
+          formWali.style.display = "none";
+          btn_data_wali.innerText = "Isi Data";
+        } else {
+          formWali.style.display = "block";
+          btn_data_wali.innerText = "Tutup";
+        }
+      }
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
