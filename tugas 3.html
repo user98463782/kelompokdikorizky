@@ -1,43 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>form</title>
-  </head>
-  <body>
-<center>
-            <h2 align="center">Form Pendaftaran</h2>
-        <table border="1" bgcolor="#00FF00"> 
-            <form method="post" action="proses.php"> <tr>
-                <td>Nama</td>
-                <td width="200"><input type="text" name="nama" size="10" /></td> 
-            </tr>
-            <tr><td>Jenis Kelamin</td>
-                <td><select name="jk" size="1">
-                    <option value="Laki-laki">Laki-laki</option>
-                    <option value="Perempuan">Perempuan</option>
-                </select></td>
-            </tr>
-            <tr>
-                <td>Agama</td>
-                <td> <input type="radio" name="hobby" value="Islam">Islam</option><br /> 
-                    <input type="radio" name="hobby" value="Islam">Katholik</option><br /> 
-                    <input type="radio" name="hobby" value="Islam">Protestan</option><br /> 
-                    <input type="radio" name="hobby" value="Islam">Hindu</option><br /> 
-                    <input type="radio" name="hobby" value="Islam">Budha</option> 
-                </td> 
-            </tr> 
-            </tr><td>Hobby</td> <td><input type="checkbox" name="hobby" value="Browsing" />Browsing<br /> 
-                <input type="checkbox" name="hobby" value="Browsing" />Game<br /> 
-                <input type="checkbox" name="hobby" value="Browsing" />Olah Raga </td> 
-            </tr>
-            <tr><td>Alamat</td> <td><textarea name="alamat" cols="20" rows="5"></textarea></td> 
-            </tr> 
-            <tr><td><input type="submit" value="Kirim" /></td> <td><input type="reset" value="Batal" /></td> 
-            </tr> 
-        </form> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 align="center">Daftar Mahasiswa</h2>
+    <table border="1" align="center>
+        <tr bgcolor="#999999">
+    <td width="100" align="center" rowspan="2">Nama Mahasiswa</td>
+    <td width="200" align="center" rowspan="2">Jurusan</td>
+    <td width="100" align="center" colspan="2">Nilai</td>
+    <td width="100" align="center" rowspan="2">Nilai Akhir</td>
+    </tr>
+
+    <tr bgcolor="#999999">
+        <td width="100" align="center"> UTS</td>
+        <td width="100" align="center"> UAS</td>
+    </tr>
+    <tr>
+        <td>paijo</td>
+        <td>TIK</td>
+        <td>80</td>
+        <td>75</td>
+        <td>B</td>
+    </tr>
+    <tr>
+        <td align="center">Karsono</td>
+        <td align="center">SI</td>
+        <td align="center">85</td>
+        <td align="center">90</td>
+        <td align="center">A</td>
+    </tr>
+
+
     </table>
-</center>
-  </body>
+    <h4>TUGAS PENOMORAN</h4>
+    <ol type="A">
+        <li>Program S1</li>
+        <ul type="disc">
+            <li>Tehnik Informatika</li>
+            <li>Sistem Informasi</li>
+        </ul>
+        <li>Program D3</li>
+        <ul type="cirle">
+            <li>Manajemen Informatika</li>
+            <li>Komputer Akuntansi</li>
+            
+        </ul>
+    </ol>
+
+
+</body>
 </html>
