@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Perhitungan Gaji</h2>
+    <form id="salaryForm">
+      <label for="hariKerja">Jumlah Hari Kerja:</label><br />
+      <input type="number" id="hariKerja" name="hariKerja" min="0" /><br />
+      <label for="jamLembur">Jumlah Jam Lembur:</label><br />
+      <input type="number" id="jamLembur" name="jamLembur" min="0" /><br />
+      <button type="button" onclick="calculateSalary()">Hitung Gaji</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+      function calculateSalary() {
+        var hariKerja = parseInt(document.getElementById("hariKerja").value);
+        var jamLembur = parseInt(document.getElementById("jamLembur").value);
+
+        var gajiPerHari = 50000;
+        var gajiTotal = hariKerja * gajiPerHari;
+
+        // Hitung gaji lembur
+        var gajiLemburPerJam;
+        if (jamLembur >= 1 && jamLembur <= 2) {
+          gajiLemburPerJam = 25000;
+        } else if (jamLembur >= 3) {
+          gajiLemburPerJam = 35000;
+        } else {
+          gajiLemburPerJam = 0;
+        }
+        var gajiLembur = jamLembur * gajiLemburPerJam;
+
+        // Hitung bonus uang makan jika jumlah jam kerja >= 20
+        var bonusUangMakan = 0;
+        if (hariKerja * 8 + jamLembur >= 20) {
+          bonusUangMakan = 5000 * hariKerja;
+        }
+
+        // Hitung gaji total
+        var gajiTotal = gajiTotal + gajiLembur + bonusUangMakan;
+
+        document.getElementById("result").innerHTML =
+          "Gaji Total: " + gajiTotal;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Billing Online</title>
+    <script>
+      function calculateCost() {
+        // Mendapatkan nilai dari input detik
+        var seconds = parseInt(document.getElementById("seconds").value);
+
+        // Menghitung jumlah pulsa
+        var pulses = Math.ceil(seconds / 45);
+
+        // Menghitung biaya total
+        var cost = pulses * 30;
+
+        // Menghitung total waktu pemakaian dalam jam, menit, dan detik
+        var hours = Math.floor(seconds / 3600);
+        var minutes = Math.floor((seconds % 3600) / 60);
+        var remainingSeconds = seconds % 60;
+
+        // Menampilkan hasil
+        document.getElementById("result").innerHTML =
+          "Jumlah Pulsa: " +
+          pulses +
+          "<br>Biaya Total: Rp " +
+          cost +
+          "<br>" +
+          "Total Waktu Pemakaian: " +
+          hours +
+          " jam " +
+          minutes +
+          " menit " +
+          remainingSeconds +
+          " detik";
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Calculator Billing Online</h2>
+    <p>Masukkan jumlah detik pemakaian:</p>
+    <input type="text" id="seconds" placeholder="Jumlah Detik" />
+    <button onclick="calculateCost()">Hitung Biaya</button>
+    <div id="result"></div>
+  </body>
+</html>

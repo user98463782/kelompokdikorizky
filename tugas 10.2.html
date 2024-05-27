@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perhitungan Harga dengan Diskon</title>
+  </head>
+  <body>
+    <h2>Perhitungan Harga dengan Diskon</h2>
+    <label for="nama">Nama Barang:</label>
+    <input type="text" id="nama" />
+    <br />
+    <label for="harga">Harga Barang:</label>
+    <input type="number" id="harga" />
+    <br />
+    <label for="jumlah">Jumlah Barang:</label>
+    <input type="number" id="jumlah" />
+    <br />
+    <button onclick="hitungTotal()">Hitung Total</button>
+    <br />
+    <p id="hasil"></p>
+
+    <script>
+      function hitungTotal() {
+        var nama = document.getElementById("nama").value;
+        var harga = parseFloat(document.getElementById("harga").value);
+        var jumlah = parseInt(document.getElementById("jumlah").value);
+        var diskon = 0;
+
+        if (jumlah >= 3) {
+          diskon = (10 / 100) * harga;
+        }
+
+        var totalBayar = harga * jumlah - diskon;
+        var hasil =
+          "Total pembayaran untuk " + nama + ": Rp " + totalBayar.toFixed(2);
+        document.getElementById("hasil").innerText = hasil;
+      }
+    </script>
+  </body>
+</html>

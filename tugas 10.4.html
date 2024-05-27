@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Penerimaan Pegawai</title>
+  </head>
+  <body>
+    <h2>Silakan Masukkan Informasi Anda</h2>
+    <form id="formPenerimaan">
+      <label for="jenisKelamin">Jenis Kelamin:</label>
+      <select id="jenisKelamin">
+        <option value="laki-laki">Laki-laki</option>
+        <option value="perempuan">Perempuan</option></select
+      ><br /><br />
+      <label for="tinggiBadan">Tinggi Badan (cm):</label>
+      <input type="number" id="tinggiBadan" required /><br /><br />
+      <label for="beratBadan">Berat Badan (kg):</label>
+      <input type="number" id="beratBadan" required /><br /><br />
+      <label for="ipk">IPK:</label>
+      <input type="number" step="0.01" id="ipk" required /><br /><br />
+      <label for="pendidikan">Pendidikan:</label>
+      <select id="pendidikan">
+        <option value="D3">D3</option>
+        <option value="S1">S1</option></select
+      ><br /><br />
+      <button type="button" onclick="cekKelayakan()">Cek Kelayakan</button>
+    </form>
+
+    <script>
+      function cekKelayakan() {
+        var jenisKelamin = document.getElementById("jenisKelamin").value;
+        var tinggiBadan = parseInt(
+          document.getElementById("tinggiBadan").value
+        );
+        var beratBadan = parseInt(document.getElementById("beratBadan").value);
+        var ipk = parseFloat(document.getElementById("ipk").value);
+        var pendidikan = document.getElementById("pendidikan").value;
+
+        if (
+          (jenisKelamin === "laki-laki" &&
+            tinggiBadan >= 170 &&
+            tinggiBadan <= 179 &&
+            beratBadan == tinggiBadan - 110 &&
+            ipk >= 3 &&
+            ipk <= 4 &&
+            (pendidikan === "D3" || pendidikan === "S1")) ||
+          (jenisKelamin === "perempuan" &&
+            tinggiBadan >= 160 &&
+            tinggiBadan <= 170 &&
+            beratBadan == tinggiBadan - 110 &&
+            ipk >= 3 &&
+            ipk <= 4 &&
+            (pendidikan === "D3" || pendidikan === "S1"))
+        ) {
+          alert("Anda memenuhi syarat untuk penerimaan pegawai.");
+        } else {
+          alert("Maaf, Anda tidak memenuhi syarat untuk penerimaan pegawai.");
+        }
+      }
+    </script>
+  </body>
+</html>
