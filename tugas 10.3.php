@@ -1,0 +1,118 @@
+<php></php>
+  <!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perhitungan Gaji</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      .container {
+        background-color: #fff;
+        text-align: center;
+        border: 1px solid #ccc;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+      }
+      h2 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+      form {
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        color: #555;
+        font-weight: bold;
+      }
+      input[type="number"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1em;
+      }
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      #result {
+        font-size: 1.2em;
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Perhitungan Gaji</h2>
+      <form id="salaryForm">
+        <label for="hariKerja">Jumlah Hari Kerja:</label>
+        <input type="number" id="hariKerja" name="hariKerja" min="0" />
+        <label for="jamLembur">Jumlah Jam Lembur:</label>
+        <input type="number" id="jamLembur" name="jamLembur" min="0" />
+        <button type="button" onclick="calculateSalary()">Hitung Gaji</button>
+      </form>
+      <p id="result"></p>
+    </div>
+    <script>
+      function calculateSalary() {
+        var hariKerja = parseInt(document.getElementById("hariKerja").value);
+        var jamLembur = parseInt(document.getElementById("jamLembur").value);
+
+        var gajiPerHari = 50000;
+        var gajiTotal = hariKerja * gajiPerHari;
+
+        // Hitung gaji lembur
+        var gajiLemburPerJam;
+        if (jamLembur >= 1 && jamLembur <= 2) {
+          gajiLemburPerJam = 25000;
+        } else if (jamLembur >= 3) {
+          gajiLemburPerJam = 35000;
+        } else {
+          gajiLemburPerJam = 0;
+        }
+        var gajiLembur = jamLembur * gajiLemburPerJam;
+
+        // Hitung bonus uang makan jika jumlah jam kerja >= 20
+        var bonusUangMakan = 0;
+        if (hariKerja * 8 + jamLembur >= 20) {
+          bonusUangMakan = 5000 * hariKerja;
+        }
+
+        // Hitung gaji total
+        var gajiTotal = gajiTotal + gajiLembur + bonusUangMakan;
+
+        document.getElementById("result").innerHTML =
+          "Gaji Total: Rp " + gajiTotal.toFixed(2);
+      }
+    </script>
+  </body>
+</html>
